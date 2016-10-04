@@ -1,0 +1,43 @@
+{% extends "layout/base.html" %}
+{% block content %}      
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Form Tambah Anggota</h1>
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                      <li><a href="/">Beranda</a></li>
+                      <li class="active">Tambah Anggota</li>
+                    </ol>
+                    <br />
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Tambah Anggota
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            {% if form.errors %}
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    {{ form.errors }}
+                                </div>
+                            {% endif %}
+                            <form action="" method="POST" role="form" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                 {{ form.as_p }}
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <button type="reset" class="btn btn-danger"><i class="glyphicon glyphicon-back"></i> Reset</button>
+                            </form>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+{% endblock %}

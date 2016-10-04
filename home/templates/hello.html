@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form action="/hasil/" method="post">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <input type="password" name="pass">
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="/"><i class="fa fa-dashboard fa-fw"></i> Profil</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Anggota<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'daftar_anggota' %}">Daftar Anggota</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'tambah_anggota' %}">Tambah Anggota</a>
+                                </li>
+{#                                 <li>#}
+{#                                    <a href="/tambah_coba">Tambah Coba</a>#}
+{#                                </li>#}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Buku<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'daftar_buku' %}">Daftar Buku</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'tambah_buku' %}">Tambah Buku</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Peminjaman<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url 'daftar_peminjaman' %}">Daftar Peminjaman</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'tambah_peminjaman' %}">Tambah Peminjaman</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->

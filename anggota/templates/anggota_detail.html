@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+{% block content %}      
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Daftar Anggota</h1>
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                      <li><a href="/">Beranda</a></li>
+                      <li class="active">Daftar Anggota</li>
+                    </ol>
+                    <br />
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Daftar Anggota detail
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                                        {{ forloop.counter }}
+                                                        {{ instance.nrp }}
+                                                        {{ instance.nama }}
+                                                        {{ instance.alamat }}
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+     <!-- /.row -->
+{% endblock %}
