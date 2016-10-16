@@ -1,0 +1,65 @@
+{% extends "layout/base.html" %}
+{% block content %}      
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Daftar Anggota</h1>
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                      <li><a href="/">Beranda</a></li>
+                      <li class="active">Daftar Anggota</li>
+                    </ol>
+                    <br />
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Daftar Anggota detail
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                No buku : <form method="GET" action="">
+                                        <input type="text" name="q2" placeholder="search" value="{{ request.GET.q2 }}"/>
+                                        <input type="submit" value="Search">
+                                        </form>
+                                    <form action="{% url 'tambahCoba' %}" method="post" role="form">
+                                        {% csrf_token %}
+                                        NRP : <input type="text" name="nrp" value="{{ instance.nrp }}"> <br><br>
+                                        Nama : <input type="text" name="nama" value="{{ instance.nama }}"> <br><br>
+                                        Tanggal Pinjam : <input type="datetime" name="tgl_pinjam" id=""><br><br>
+                                        Tanggal Kembali : <input type="datetime" name="tgl_kembali" id=""><br><br>
+
+                                        <br><br>
+                                        {% if d_buku %}
+
+
+                                        {% for b in d_buku %}
+                                            No Buku : <input type="text" name="no_buku" id="" value="{{ b.no_buku }}">
+                                            <br><br>
+                                            Judul Buku : <input type="text" name="judul_buku" value="{{ b.judul_buku }}"><br><br>
+                                            Pengarang : <input type="text" name="pengarang" value="{{ b.pengarang }}"><br><br>
+                                            Jenis Buku : <input type="text" name="jenis_buku" value="{{ b.jenis_buku }}"><br><br>
+                                        {% endfor %}
+                                        {% endif %}
+                                        <input type="submit" name="Submit">
+
+
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+     <!-- /.row -->
+{% endblock %}

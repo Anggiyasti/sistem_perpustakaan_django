@@ -15,6 +15,7 @@ class Anggota (models.Model):
     alamat = models.TextField(blank=True)
     no_telp = models.CharField(max_length=12)
     foto = models.FileField(null=True, blank=True)
+    jenis_kelamin = models.CharField(max_length=10, choices=JENIS_KELAMIN_CHOICES, null=True)
     # foto = models.FileField(upload_to=os.path.join(settings.MEDIA_ROOT,"upload"), blank=True)
 
     def __str__(self):

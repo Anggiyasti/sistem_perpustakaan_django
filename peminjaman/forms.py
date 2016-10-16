@@ -1,6 +1,8 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Peminjaman
+from buku.models import Buku
+from anggota.models import Anggota
 
 class PeminjamanForm(ModelForm):
     # class meta untuk mendefinisikan ModelForm

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from buku.models import *
+from .models import Buku
 
 # Register your models here.
 class BukuAdmin (admin.ModelAdmin):

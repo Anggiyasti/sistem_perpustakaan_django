@@ -37,8 +37,8 @@ def profil(request):
     petugas = Petugas.objects.get(id=request.session['petugas_id'])
     # select * from petugas where id = '1'
     # return render(request,'profil.html', {"petugas":petugas})
-    return render(request,'profil.html', {"petugas":petugas})
 
+    return render(request,'profil.html', {"petugas":petugas})
 
 
 

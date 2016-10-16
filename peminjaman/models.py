@@ -4,7 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 import os.path
 from anggota.models import *
-from buku.models import *
+from buku.models import Buku
+
 
 
 # Create your models here.
@@ -13,7 +14,7 @@ class Peminjaman (models.Model):
     no_buku = models.ForeignKey(Buku)
     tgl_pinjam = models.DateField()
     tgl_kembali = models.DateField()
-    status = models.CharField(max_length=10)
+    status = models.CharField(max_length=10, null=True)
 
     def __str__(self):
         return self.nrp.nama

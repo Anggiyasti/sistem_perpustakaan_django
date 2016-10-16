@@ -38,11 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'anggota',
-    'buku',
-    'peminjaman',
     'pengembalian',
     'home',
-    'hello',
+    'buku',
+    'peminjaman',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -84,7 +83,7 @@ WSGI_APPLICATION = 'perpustakaanta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.perpus'),
     }
 }
 
@@ -132,7 +131,7 @@ LOGIN_URL = '/login/'
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "assets"),
+    os.path.join(BASE_DIR, "static/AdminLTE"),
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR,"media_cdn")

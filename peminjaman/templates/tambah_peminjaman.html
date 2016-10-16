@@ -2,10 +2,10 @@
 {% block content %}      
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Form Tambah Peminjaman</h1>
+                    <h1 class="page-header">Daftar Peminjaman</h1>
                     <ol class="breadcrumb" style="margin-bottom: 5px;">
                       <li><a href="/">Beranda</a></li>
-                      <li class="active">Tambah Izin</li>
+                      <li class="active">Daftar Peminjaman</li>
                     </ol>
                     <br />
                 </div>
@@ -16,41 +16,61 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i>
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Daftar Peminjaman
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            {% if form.errors %}
-                                <div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    {{ form.errors }}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <form method="GET" action="">
+                                                <input type="text" name="q" placeholder="search" value="{{ request.GET.q }}"/>
+                                                <input type="submit" value="Search">
+                                            </form>
+                                        </div>
+
+                                    <br/>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <td>NRP</td>
+                                                    <td>Nama</td>
+                                                    <td>Alamat</td>
+                                                    <td>No Telpon</td>
+                                                    <td>Foto</td>
+                                                    <td>Action</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% if d_pinjam %}
+                                                    {% for pinjam in d_pinjam %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ pinjam.nrp }}</td>
+                                                        <td>{{ pinjam.nama }}</td>
+                                                        <td>{{ pinjam.alamat }}</td>
+                                                        <td>{{ pinjam.no_telp }}</td>
+                                                        <td>{% if pinjam.foto %}
+                                                                <img src="{{ pinjam.foto.url }}" class="img-responsive" id="gambar">
+                                                            {% endif %}</td>
+                                                        <td><a href="{% url 'detail1' pinjam.nrp %}">Detail</a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                {% else %}
+                                                <tr>
+                                                    <td colspan="3" style="text-align:center;">Tidak ada data saat ini...</td>
+                                                </tr>
+                                                {% endif %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
                                 </div>
-                            {% endif %}
-                            <form action="/tambah_peminjaman/" method="POST" role="form">
-                                {% csrf_token %}
-                                <div class="form-group  col-md-4">
-                                    <label>{{ form.nrp.label }}</label>
-                                    {{ form.nrp }}
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>{{ form.no_buku.label }}</label>
-                                    {{ form.no_buku }}
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>{{ form.tgl_pinjam.label }}</label>
-                                    {{ form.tgl_pinjam|date }}
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>{{ form.tgl_kembali.label }}</label>
-                                    {{ form.tgl_kembali }}
-                                    {% filter force_escape|lower %}
-    This text will be HTML-escaped, and will APPEAR  vv in all lowercase.
-{% endfilter %}
-                                </div>
-                                <br /><br />
-                                <input type="submit" class="btn btn-primary" value="Submit" />
-                                <button type="reset" class="btn btn-danger"><i class="glyphicon glyphicon-back"></i> Reset</button>
-                            </form>
+                                <!-- /.col-lg-4 (nested) -->
+                            </div>
+                            <!-- /.row -->
                         </div>
                         <!-- /.panel-body -->
                     </div>

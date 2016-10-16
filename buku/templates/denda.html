@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Hitung Denda</h1>
+<form action="/denda/" method="post">
+    {% csrf_token %}
+    <input type="datetime" name="tgl_pinjam" placeholder="tgl pinjam"/>
+    <input type="datetime" name="tgl_kembali" placeholder="tglkembali"/>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Hasil</h1>
+Tanggal Pinjam : {{ pinjam }} <br>
+Tanggal Kembali : {{ kembali }} <br>
+Denda : {{ denda }}
+
+</body>
+</html>
