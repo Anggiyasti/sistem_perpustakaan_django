@@ -13,6 +13,6 @@ class Buku (models.Model):
     judul_buku = models.CharField(max_length=100)
     pengarang = models.CharField(max_length=100)
     jenis_buku = models.CharField(max_length=5, choices=JENIS_BUKU_CHOICES)
-
+    jumlah = models.IntegerField(null=True)
     def __str__(self):
         return self.no_buku
